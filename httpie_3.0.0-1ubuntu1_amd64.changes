@@ -1,0 +1,32 @@
+Format: 1.8
+Date: Tue, 12 Nov 2024 22:17:06 -0500
+Source: httpie
+Binary: httpie
+Built-For-Profiles: noudeb
+Architecture: source all
+Version: 3.0.0-1ubuntu1
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: Sophia Villalba <villalba.s@northeastern.edu>
+Changed-By: Sophia Villalba <villalba.s@northeastern.edu>
+Description:
+ httpie     - User-friendly command-line HTTP client
+Changes:
+ httpie (3.0.0-1ubuntu1) UNRELEASED; urgency=medium
+ .
+   * Updated requirements.txt to include necessary dependencies
+Checksums-Sha1:
+ dece8ae84ae4dbbbc82f4d8eb954d67f73c2f113 871 httpie_3.0.0-1ubuntu1.dsc
+ 9bf1757686d9ee9fdd3614c6bf7d4a704f457928 3080 httpie_3.0.0-1ubuntu1.debian.tar.xz
+ 273f9fcf38a59909f64b1921ae985df1ee1b180a 2168 httpie_3.0.0-1ubuntu1_all.deb
+ 89a2bc4f59bb1b07848cd338e262968ea853801d 6667 httpie_3.0.0-1ubuntu1_amd64.buildinfo
+Checksums-Sha256:
+ 0eaf13f901141ea8b233937eb31f3b8586e3e3f37633b26f5bb3a7c782668e51 871 httpie_3.0.0-1ubuntu1.dsc
+ 68ececa9cb29ede71be5d677efe3520f70500f3ca34c3233db0c54a9b2a44694 3080 httpie_3.0.0-1ubuntu1.debian.tar.xz
+ e7042dcd32084412f4d4b9a50e43fdb333afbf88067ded4459503827d5152882 2168 httpie_3.0.0-1ubuntu1_all.deb
+ aad292c66b8c1744690eff1a48b0edbec06e1ac239b056a12824ac4df58698cb 6667 httpie_3.0.0-1ubuntu1_amd64.buildinfo
+Files:
+ 7f718f861424c8b05374cc69c0a79503 871 web optional httpie_3.0.0-1ubuntu1.dsc
+ 14eb3e6b311b8e7c9724d010f7ff6305 3080 web optional httpie_3.0.0-1ubuntu1.debian.tar.xz
+ fd764c18c252f3f730b588896306fe8d 2168 web optional httpie_3.0.0-1ubuntu1_all.deb
+ acaaf7beafd430feaa704d3d9cca01fb 6667 web optional httpie_3.0.0-1ubuntu1_amd64.buildinfo

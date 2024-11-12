@@ -1,0 +1,516 @@
+ dpkg-buildpackage -us -uc -ui
+dpkg-buildpackage: info: source package httpie
+dpkg-buildpackage: info: source version 3.0.0-1ubuntu1
+dpkg-buildpackage: info: source distribution UNRELEASED
+dpkg-buildpackage: info: source changed by Sophia <sophia@sophia-VirtualBox>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ debian/rules clean
+dh clean
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/home/sophia/Desktop/midterm/httpie'
+dh_auto_clean
+	make -j2 clean
+make[2]: Entering directory '/home/sophia/Desktop/midterm/httpie'
+
+
+[0;32m### Cleaning up ### [0m
+
+rm -rf venv
+# Remove symlink for virtualenvwrapper, if we’ve created one.
+[ -n "" -a -L "/httpie" -a -f "/httpie" ] && rm /httpie || true
+rm -rf *.egg dist build .coverage .cache .pytest_cache httpie.egg-info
+find . -name '__pycache__' -delete -o -name '*.pyc' -delete
+
+make[2]: Leaving directory '/home/sophia/Desktop/midterm/httpie'
+dh_clean
+make[1]: Leaving directory '/home/sophia/Desktop/midterm/httpie'
+   dh_clean
+ dpkg-source -b .
+dpkg-source: warning: Version number suggests Ubuntu changes, but Maintainer: does not have Ubuntu address
+dpkg-source: warning: Version number suggests Ubuntu changes, but there is no XSBC-Original-Maintainer field
+dpkg-source: info: using source format '3.0 (quilt)'
+dpkg-source: info: building httpie using existing ./httpie_3.0.0.orig.tar.gz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: building httpie in httpie_3.0.0-1ubuntu1.debian.tar.xz
+dpkg-source: info: building httpie in httpie_3.0.0-1ubuntu1.dsc
+ debian/rules binary
+dh binary
+   dh_update_autotools_config
+   dh_autoreconf
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/home/sophia/Desktop/midterm/httpie'
+python3 -m venv venv
+. venv/bin/activate && pip install -r requirements.txt
+Processing /home/sophia/Desktop/midterm/httpie (from -r requirements.txt (line 14))
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting attrs==24.2.0 (from -r requirements.txt (line 1))
+  Using cached attrs-24.2.0-py3-none-any.whl.metadata (11 kB)
+Collecting blinker==1.9.0 (from -r requirements.txt (line 2))
+  Using cached blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting brotlicffi==1.1.0.0 (from -r requirements.txt (line 3))
+  Using cached brotlicffi-1.1.0.0-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.7 kB)
+Collecting certifi==2024.8.30 (from -r requirements.txt (line 4))
+  Using cached certifi-2024.8.30-py3-none-any.whl.metadata (2.2 kB)
+Collecting cffi==1.17.1 (from -r requirements.txt (line 5))
+  Using cached cffi-1.17.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting charset-normalizer==3.4.0 (from -r requirements.txt (line 6))
+  Using cached charset_normalizer-3.4.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (34 kB)
+Collecting click==8.1.7 (from -r requirements.txt (line 7))
+  Using cached click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+Collecting decorator==5.1.1 (from -r requirements.txt (line 8))
+  Using cached decorator-5.1.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting defusedxml==0.7.1 (from -r requirements.txt (line 9))
+  Using cached defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Collecting flasgger==0.9.7.1 (from -r requirements.txt (line 10))
+  Using cached flasgger-0.9.7.1-py2.py3-none-any.whl
+Collecting Flask==3.0.3 (from -r requirements.txt (line 11))
+  Using cached flask-3.0.3-py3-none-any.whl.metadata (3.2 kB)
+Collecting greenlet==3.1.1 (from -r requirements.txt (line 12))
+  Using cached greenlet-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting httpbin==0.10.2 (from -r requirements.txt (line 13))
+  Using cached httpbin-0.10.2-py2.py3-none-any.whl.metadata (6.2 kB)
+Collecting idna==3.10 (from -r requirements.txt (line 15))
+  Using cached idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting iniconfig==2.0.0 (from -r requirements.txt (line 16))
+  Using cached iniconfig-2.0.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting itsdangerous==2.2.0 (from -r requirements.txt (line 17))
+  Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting Jinja2==3.1.4 (from -r requirements.txt (line 18))
+  Using cached jinja2-3.1.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting jsonschema==4.23.0 (from -r requirements.txt (line 19))
+  Using cached jsonschema-4.23.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting jsonschema-specifications==2024.10.1 (from -r requirements.txt (line 20))
+  Using cached jsonschema_specifications-2024.10.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting markdown-it-py==3.0.0 (from -r requirements.txt (line 21))
+  Using cached markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting MarkupSafe==3.0.2 (from -r requirements.txt (line 22))
+  Using cached MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting mdurl==0.1.2 (from -r requirements.txt (line 23))
+  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting mistune==3.0.2 (from -r requirements.txt (line 24))
+  Using cached mistune-3.0.2-py3-none-any.whl.metadata (1.7 kB)
+Collecting multidict==6.1.0 (from -r requirements.txt (line 25))
+  Using cached multidict-6.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.0 kB)
+Collecting packaging==24.2 (from -r requirements.txt (line 26))
+  Using cached packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting pluggy==1.5.0 (from -r requirements.txt (line 27))
+  Using cached pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pycparser==2.22 (from -r requirements.txt (line 28))
+  Using cached pycparser-2.22-py3-none-any.whl.metadata (943 bytes)
+Collecting Pygments==2.18.0 (from -r requirements.txt (line 29))
+  Using cached pygments-2.18.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting PySocks==1.7.1 (from -r requirements.txt (line 30))
+  Using cached PySocks-1.7.1-py3-none-any.whl.metadata (13 kB)
+Collecting pytest==8.3.3 (from -r requirements.txt (line 31))
+  Using cached pytest-8.3.3-py3-none-any.whl.metadata (7.5 kB)
+Collecting pytest-httpbin==2.1.0 (from -r requirements.txt (line 32))
+  Using cached pytest_httpbin-2.1.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting PyYAML==6.0.2 (from -r requirements.txt (line 33))
+  Using cached PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting referencing==0.35.1 (from -r requirements.txt (line 34))
+  Using cached referencing-0.35.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting requests==2.32.3 (from -r requirements.txt (line 35))
+  Using cached requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting requests-toolbelt==1.0.0 (from -r requirements.txt (line 36))
+  Using cached requests_toolbelt-1.0.0-py2.py3-none-any.whl.metadata (14 kB)
+Collecting responses==0.25.3 (from -r requirements.txt (line 37))
+  Using cached responses-0.25.3-py3-none-any.whl.metadata (46 kB)
+Collecting rich==13.9.4 (from -r requirements.txt (line 38))
+  Using cached rich-13.9.4-py3-none-any.whl.metadata (18 kB)
+Collecting rpds-py==0.21.0 (from -r requirements.txt (line 39))
+  Using cached rpds_py-0.21.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Collecting setuptools==75.4.0 (from -r requirements.txt (line 40))
+  Using cached setuptools-75.4.0-py3-none-any.whl.metadata (6.8 kB)
+Collecting six==1.16.0 (from -r requirements.txt (line 41))
+  Using cached six-1.16.0-py2.py3-none-any.whl.metadata (1.8 kB)
+Collecting urllib3==2.2.3 (from -r requirements.txt (line 42))
+  Using cached urllib3-2.2.3-py3-none-any.whl.metadata (6.5 kB)
+Collecting Werkzeug==3.1.3 (from -r requirements.txt (line 43))
+  Using cached werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+Requirement already satisfied: pip in ./venv/lib/python3.12/site-packages (from httpie@ file:///home/sophia/Desktop/midterm/httpie->-r requirements.txt (line 14)) (24.0)
+Using cached attrs-24.2.0-py3-none-any.whl (63 kB)
+Using cached blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Using cached brotlicffi-1.1.0.0-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.9 MB)
+Using cached certifi-2024.8.30-py3-none-any.whl (167 kB)
+Using cached cffi-1.17.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (479 kB)
+Using cached charset_normalizer-3.4.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (143 kB)
+Using cached click-8.1.7-py3-none-any.whl (97 kB)
+Using cached decorator-5.1.1-py3-none-any.whl (9.1 kB)
+Using cached defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Using cached flask-3.0.3-py3-none-any.whl (101 kB)
+Using cached greenlet-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (613 kB)
+Using cached httpbin-0.10.2-py2.py3-none-any.whl (100 kB)
+Using cached idna-3.10-py3-none-any.whl (70 kB)
+Using cached iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Using cached jinja2-3.1.4-py3-none-any.whl (133 kB)
+Using cached jsonschema-4.23.0-py3-none-any.whl (88 kB)
+Using cached jsonschema_specifications-2024.10.1-py3-none-any.whl (18 kB)
+Using cached markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+Using cached MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Using cached mistune-3.0.2-py3-none-any.whl (47 kB)
+Using cached multidict-6.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (131 kB)
+Using cached packaging-24.2-py3-none-any.whl (65 kB)
+Using cached pluggy-1.5.0-py3-none-any.whl (20 kB)
+Using cached pycparser-2.22-py3-none-any.whl (117 kB)
+Using cached pygments-2.18.0-py3-none-any.whl (1.2 MB)
+Using cached PySocks-1.7.1-py3-none-any.whl (16 kB)
+Using cached pytest-8.3.3-py3-none-any.whl (342 kB)
+Using cached pytest_httpbin-2.1.0-py3-none-any.whl (8.3 kB)
+Using cached PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (767 kB)
+Using cached referencing-0.35.1-py3-none-any.whl (26 kB)
+Using cached requests-2.32.3-py3-none-any.whl (64 kB)
+Using cached requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)
+Using cached responses-0.25.3-py3-none-any.whl (55 kB)
+Using cached rich-13.9.4-py3-none-any.whl (242 kB)
+Using cached rpds_py-0.21.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (364 kB)
+Using cached setuptools-75.4.0-py3-none-any.whl (1.2 MB)
+Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Using cached urllib3-2.2.3-py3-none-any.whl (126 kB)
+Using cached werkzeug-3.1.3-py3-none-any.whl (224 kB)
+Building wheels for collected packages: httpie
+  Building wheel for httpie (pyproject.toml): started
+  Building wheel for httpie (pyproject.toml): finished with status 'done'
+  Created wheel for httpie: filename=httpie-3.2.4-py3-none-any.whl size=127961 sha256=3865669f23d62aefb24576686ef19b2d05246ffb01f70036671aa9b48a2d4b18
+  Stored in directory: /tmp/pip-ephem-wheel-cache-e4mrykof/wheels/ab/61/53/5745b25e2b8bbaa14fbfbd9653380fc1488b6ca0d288808571
+Successfully built httpie
+Installing collected packages: urllib3, six, setuptools, rpds-py, PyYAML, PySocks, Pygments, pycparser, pluggy, packaging, multidict, mistune, mdurl, MarkupSafe, itsdangerous, iniconfig, idna, greenlet, defusedxml, decorator, click, charset-normalizer, certifi, blinker, attrs, Werkzeug, requests, referencing, pytest, markdown-it-py, Jinja2, cffi, rich, responses, requests-toolbelt, jsonschema-specifications, Flask, brotlicffi, jsonschema, httpie, flasgger, httpbin, pytest-httpbin
+Successfully installed Flask-3.0.3 Jinja2-3.1.4 MarkupSafe-3.0.2 PySocks-1.7.1 PyYAML-6.0.2 Pygments-2.18.0 Werkzeug-3.1.3 attrs-24.2.0 blinker-1.9.0 brotlicffi-1.1.0.0 certifi-2024.8.30 cffi-1.17.1 charset-normalizer-3.4.0 click-8.1.7 decorator-5.1.1 defusedxml-0.7.1 flasgger-0.9.7.1 greenlet-3.1.1 httpbin-0.10.2 httpie-3.2.4 idna-3.10 iniconfig-2.0.0 itsdangerous-2.2.0 jsonschema-4.23.0 jsonschema-specifications-2024.10.1 markdown-it-py-3.0.0 mdurl-0.1.2 mistune-3.0.2 multidict-6.1.0 packaging-24.2 pluggy-1.5.0 pycparser-2.22 pytest-8.3.3 pytest-httpbin-2.1.0 referencing-0.35.1 requests-2.32.3 requests-toolbelt-1.0.0 responses-0.25.3 rich-13.9.4 rpds-py-0.21.0 setuptools-75.4.0 six-1.16.0 urllib3-2.2.3
+dh_python3
+make[1]: Leaving directory '/home/sophia/Desktop/midterm/httpie'
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/home/sophia/Desktop/midterm/httpie'
+dh_auto_build
+	make -j2 "INSTALL=install --strip-program=true"
+make[2]: Entering directory '/home/sophia/Desktop/midterm/httpie'
+Available tasks:
+----------------
+all
+brew-deps
+brew-test
+build
+clean
+codecov-upload
+codestyle
+content
+default
+doc-check
+install
+installation-docs
+install-reqs
+man
+publish
+publish-no-test
+pycodestyle
+test
+test-all
+test-bdist-wheel
+test-dist
+test-sdist
+twine-check
+uninstall-httpie
+venv
+
+make[2]: Leaving directory '/home/sophia/Desktop/midterm/httpie'
+make[1]: Leaving directory '/home/sophia/Desktop/midterm/httpie'
+   debian/rules override_dh_auto_test
+make[1]: Entering directory '/home/sophia/Desktop/midterm/httpie'
+true
+make[1]: Leaving directory '/home/sophia/Desktop/midterm/httpie'
+   create-stamp debian/debhelper-build-stamp
+   dh_prep
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/home/sophia/Desktop/midterm/httpie'
+dh_auto_install
+	make -j2 install DESTDIR=/home/sophia/Desktop/midterm/httpie/debian/httpie AM_UPDATE_INFO_DIR=no "INSTALL=install --strip-program=true"
+make[2]: Entering directory '/home/sophia/Desktop/midterm/httpie'
+
+
+[0;32m### Updating package tools ### [0m
+
+venv/bin/pip3 install --upgrade pip wheel build
+Requirement already satisfied: pip in ./venv/lib/python3.12/site-packages (24.0)
+Collecting pip
+  Downloading pip-24.3.1-py3-none-any.whl.metadata (3.7 kB)
+Collecting wheel
+  Downloading wheel-0.45.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting build
+  Downloading build-1.2.2.post1-py3-none-any.whl.metadata (6.5 kB)
+Requirement already satisfied: packaging>=19.1 in ./venv/lib/python3.12/site-packages (from build) (24.2)
+Collecting pyproject_hooks (from build)
+  Downloading pyproject_hooks-1.2.0-py3-none-any.whl.metadata (1.3 kB)
+Downloading pip-24.3.1-py3-none-any.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 11.4 MB/s eta 0:00:00
+Downloading wheel-0.45.0-py3-none-any.whl (72 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.5/72.5 kB 740.1 kB/s eta 0:00:00
+Downloading build-1.2.2.post1-py3-none-any.whl (22 kB)
+Downloading pyproject_hooks-1.2.0-py3-none-any.whl (10 kB)
+Installing collected packages: wheel, pyproject_hooks, pip, build
+  Attempting uninstall: pip
+    Found existing installation: pip 24.0
+    Uninstalling pip-24.0:
+      Successfully uninstalled pip-24.0
+Successfully installed build-1.2.2.post1 pip-24.3.1 pyproject_hooks-1.2.0 wheel-0.45.0
+
+
+[0;32m### Installing dev requirements ### [0m
+
+venv/bin/pip3 install --upgrade '.[dev]' '.[test]'
+Processing /home/sophia/Desktop/midterm/httpie
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: pip in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (24.3.1)
+Requirement already satisfied: charset_normalizer>=2.0.0 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (3.4.0)
+Requirement already satisfied: defusedxml>=0.6.0 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (0.7.1)
+Requirement already satisfied: requests>=2.22.0 in ./venv/lib/python3.12/site-packages (from requests[socks]>=2.22.0->httpie==3.2.4) (2.32.3)
+Requirement already satisfied: Pygments>=2.5.2 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (2.18.0)
+Requirement already satisfied: requests-toolbelt>=0.9.1 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (1.0.0)
+Requirement already satisfied: multidict>=4.7.0 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (6.1.0)
+Requirement already satisfied: setuptools in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (75.4.0)
+Requirement already satisfied: rich>=9.10.0 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (13.9.4)
+Requirement already satisfied: pytest in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (8.3.3)
+Requirement already satisfied: pytest-httpbin>=0.0.6 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (2.1.0)
+Requirement already satisfied: responses in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (0.25.3)
+Collecting pytest-mock (from httpie==3.2.4)
+  Downloading pytest_mock-3.14.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting werkzeug<2.1.0 (from httpie==3.2.4)
+  Downloading Werkzeug-2.0.3-py3-none-any.whl.metadata (4.5 kB)
+Collecting flake8 (from httpie==3.2.4)
+  Downloading flake8-7.1.1-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting flake8-comprehensions (from httpie==3.2.4)
+  Downloading flake8_comprehensions-3.16.0-py3-none-any.whl.metadata (12 kB)
+Collecting flake8-deprecated (from httpie==3.2.4)
+  Downloading flake8_deprecated-2.2.1-py3-none-any.whl.metadata (23 kB)
+Collecting flake8-mutable (from httpie==3.2.4)
+  Downloading flake8-mutable-1.2.0.tar.gz (3.0 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting flake8-tuple (from httpie==3.2.4)
+  Downloading flake8_tuple-0.4.1-py2.py3-none-any.whl.metadata (2.9 kB)
+Collecting pyopenssl (from httpie==3.2.4)
+  Downloading pyOpenSSL-24.2.1-py3-none-any.whl.metadata (13 kB)
+Collecting pytest-cov (from httpie==3.2.4)
+  Downloading pytest_cov-6.0.0-py3-none-any.whl.metadata (27 kB)
+Requirement already satisfied: pyyaml in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (6.0.2)
+Collecting twine (from httpie==3.2.4)
+  Downloading twine-5.1.1-py3-none-any.whl.metadata (3.5 kB)
+Requirement already satisfied: wheel in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (0.45.0)
+Requirement already satisfied: Jinja2 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (3.1.4)
+Requirement already satisfied: httpbin in ./venv/lib/python3.12/site-packages (from pytest-httpbin>=0.0.6->httpie==3.2.4) (0.10.2)
+Requirement already satisfied: idna<4,>=2.5 in ./venv/lib/python3.12/site-packages (from requests>=2.22.0->requests[socks]>=2.22.0->httpie==3.2.4) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./venv/lib/python3.12/site-packages (from requests>=2.22.0->requests[socks]>=2.22.0->httpie==3.2.4) (2.2.3)
+Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.12/site-packages (from requests>=2.22.0->requests[socks]>=2.22.0->httpie==3.2.4) (2024.8.30)
+Requirement already satisfied: PySocks!=1.5.7,>=1.5.6 in ./venv/lib/python3.12/site-packages (from requests[socks]>=2.22.0->httpie==3.2.4) (1.7.1)
+Requirement already satisfied: markdown-it-py>=2.2.0 in ./venv/lib/python3.12/site-packages (from rich>=9.10.0->httpie==3.2.4) (3.0.0)
+Collecting mccabe<0.8.0,>=0.7.0 (from flake8->httpie==3.2.4)
+  Downloading mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+Collecting pycodestyle<2.13.0,>=2.12.0 (from flake8->httpie==3.2.4)
+  Downloading pycodestyle-2.12.1-py2.py3-none-any.whl.metadata (4.5 kB)
+Collecting pyflakes<3.3.0,>=3.2.0 (from flake8->httpie==3.2.4)
+  Downloading pyflakes-3.2.0-py2.py3-none-any.whl.metadata (3.5 kB)
+Requirement already satisfied: six in ./venv/lib/python3.12/site-packages (from flake8-tuple->httpie==3.2.4) (1.16.0)
+Requirement already satisfied: MarkupSafe>=2.0 in ./venv/lib/python3.12/site-packages (from Jinja2->httpie==3.2.4) (3.0.2)
+Collecting cryptography<44,>=41.0.5 (from pyopenssl->httpie==3.2.4)
+  Downloading cryptography-43.0.3-cp39-abi3-manylinux_2_28_x86_64.whl.metadata (5.4 kB)
+Requirement already satisfied: iniconfig in ./venv/lib/python3.12/site-packages (from pytest->httpie==3.2.4) (2.0.0)
+Requirement already satisfied: packaging in ./venv/lib/python3.12/site-packages (from pytest->httpie==3.2.4) (24.2)
+Requirement already satisfied: pluggy<2,>=1.5 in ./venv/lib/python3.12/site-packages (from pytest->httpie==3.2.4) (1.5.0)
+Collecting coverage>=7.5 (from coverage[toml]>=7.5->pytest-cov->httpie==3.2.4)
+  Downloading coverage-7.6.4-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.2 kB)
+Collecting pkginfo>=1.8.1 (from twine->httpie==3.2.4)
+  Downloading pkginfo-1.11.2-py3-none-any.whl.metadata (11 kB)
+Collecting readme-renderer>=35.0 (from twine->httpie==3.2.4)
+  Downloading readme_renderer-44.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting importlib-metadata>=3.6 (from twine->httpie==3.2.4)
+  Downloading importlib_metadata-8.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting keyring>=15.1 (from twine->httpie==3.2.4)
+  Downloading keyring-25.5.0-py3-none-any.whl.metadata (20 kB)
+Collecting rfc3986>=1.4.0 (from twine->httpie==3.2.4)
+  Downloading rfc3986-2.0.0-py2.py3-none-any.whl.metadata (6.6 kB)
+Collecting pkginfo>=1.8.1 (from twine->httpie==3.2.4)
+  Downloading pkginfo-1.10.0-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: cffi>=1.12 in ./venv/lib/python3.12/site-packages (from cryptography<44,>=41.0.5->pyopenssl->httpie==3.2.4) (1.17.1)
+Collecting zipp>=3.20 (from importlib-metadata>=3.6->twine->httpie==3.2.4)
+  Downloading zipp-3.21.0-py3-none-any.whl.metadata (3.7 kB)
+Collecting jaraco.classes (from keyring>=15.1->twine->httpie==3.2.4)
+  Downloading jaraco.classes-3.4.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting jaraco.functools (from keyring>=15.1->twine->httpie==3.2.4)
+  Downloading jaraco.functools-4.1.0-py3-none-any.whl.metadata (2.9 kB)
+Collecting jaraco.context (from keyring>=15.1->twine->httpie==3.2.4)
+  Downloading jaraco.context-6.0.1-py3-none-any.whl.metadata (4.1 kB)
+Collecting SecretStorage>=3.2 (from keyring>=15.1->twine->httpie==3.2.4)
+  Downloading SecretStorage-3.3.3-py3-none-any.whl.metadata (4.0 kB)
+Collecting jeepney>=0.4.2 (from keyring>=15.1->twine->httpie==3.2.4)
+  Downloading jeepney-0.8.0-py3-none-any.whl.metadata (1.3 kB)
+Requirement already satisfied: mdurl~=0.1 in ./venv/lib/python3.12/site-packages (from markdown-it-py>=2.2.0->rich>=9.10.0->httpie==3.2.4) (0.1.2)
+Collecting nh3>=0.2.14 (from readme-renderer>=35.0->twine->httpie==3.2.4)
+  Downloading nh3-0.2.18-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.7 kB)
+Collecting docutils>=0.21.2 (from readme-renderer>=35.0->twine->httpie==3.2.4)
+  Downloading docutils-0.21.2-py3-none-any.whl.metadata (2.8 kB)
+Requirement already satisfied: brotlicffi in ./venv/lib/python3.12/site-packages (from httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4) (1.1.0.0)
+Requirement already satisfied: decorator in ./venv/lib/python3.12/site-packages (from httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4) (5.1.1)
+Requirement already satisfied: flasgger in ./venv/lib/python3.12/site-packages (from httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4) (0.9.7.1)
+Requirement already satisfied: flask>=2.2.4 in ./venv/lib/python3.12/site-packages (from httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4) (3.0.3)
+INFO: pip is looking at multiple versions of httpbin to determine which version is compatible with other requirements. This could take a while.
+Collecting httpbin (from pytest-httpbin>=0.0.6->httpie==3.2.4)
+  Downloading httpbin-0.10.1-py2.py3-none-any.whl.metadata (6.1 kB)
+Requirement already satisfied: greenlet>=3.0.0a1 in ./venv/lib/python3.12/site-packages (from httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4) (3.1.1)
+Requirement already satisfied: pycparser in ./venv/lib/python3.12/site-packages (from cffi>=1.12->cryptography<44,>=41.0.5->pyopenssl->httpie==3.2.4) (2.22)
+Requirement already satisfied: jsonschema>=3.0.1 in ./venv/lib/python3.12/site-packages (from flasgger->httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4) (4.23.0)
+Requirement already satisfied: mistune in ./venv/lib/python3.12/site-packages (from flasgger->httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4) (3.0.2)
+INFO: pip is looking at multiple versions of flask to determine which version is compatible with other requirements. This could take a while.
+Collecting Flask (from httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4)
+  Downloading flask-3.0.2-py3-none-any.whl.metadata (3.6 kB)
+  Downloading flask-3.0.1-py3-none-any.whl.metadata (3.6 kB)
+  Downloading flask-3.0.0-py3-none-any.whl.metadata (3.6 kB)
+  Downloading flask-2.3.3-py3-none-any.whl.metadata (3.6 kB)
+  Downloading Flask-2.3.2-py3-none-any.whl.metadata (3.7 kB)
+  Downloading Flask-2.3.1-py3-none-any.whl.metadata (3.7 kB)
+  Downloading Flask-2.3.0-py3-none-any.whl.metadata (3.7 kB)
+INFO: pip is still looking at multiple versions of flask to determine which version is compatible with other requirements. This could take a while.
+  Downloading Flask-2.2.5-py3-none-any.whl.metadata (3.9 kB)
+  Downloading Flask-2.2.4-py3-none-any.whl.metadata (3.9 kB)
+  Downloading Flask-2.2.3-py3-none-any.whl.metadata (3.9 kB)
+  Downloading Flask-2.2.2-py3-none-any.whl.metadata (3.9 kB)
+  Downloading Flask-2.2.1-py3-none-any.whl.metadata (3.9 kB)
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+  Downloading Flask-2.2.0-py3-none-any.whl.metadata (3.9 kB)
+  Downloading Flask-2.1.3-py3-none-any.whl.metadata (3.9 kB)
+Requirement already satisfied: itsdangerous>=2.0 in ./venv/lib/python3.12/site-packages (from Flask->httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4) (2.2.0)
+Requirement already satisfied: click>=8.0 in ./venv/lib/python3.12/site-packages (from Flask->httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4) (8.1.7)
+Collecting more-itertools (from jaraco.classes->keyring>=15.1->twine->httpie==3.2.4)
+  Downloading more_itertools-10.5.0-py3-none-any.whl.metadata (36 kB)
+Requirement already satisfied: attrs>=22.2.0 in ./venv/lib/python3.12/site-packages (from jsonschema>=3.0.1->flasgger->httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4) (24.2.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in ./venv/lib/python3.12/site-packages (from jsonschema>=3.0.1->flasgger->httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4) (2024.10.1)
+Requirement already satisfied: referencing>=0.28.4 in ./venv/lib/python3.12/site-packages (from jsonschema>=3.0.1->flasgger->httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4) (0.35.1)
+Requirement already satisfied: rpds-py>=0.7.1 in ./venv/lib/python3.12/site-packages (from jsonschema>=3.0.1->flasgger->httpbin->pytest-httpbin>=0.0.6->httpie==3.2.4) (0.21.0)
+Downloading Werkzeug-2.0.3-py3-none-any.whl (289 kB)
+Downloading flake8-7.1.1-py2.py3-none-any.whl (57 kB)
+Downloading flake8_comprehensions-3.16.0-py3-none-any.whl (8.2 kB)
+Downloading flake8_deprecated-2.2.1-py3-none-any.whl (17 kB)
+Downloading flake8_tuple-0.4.1-py2.py3-none-any.whl (5.1 kB)
+Downloading pyOpenSSL-24.2.1-py3-none-any.whl (58 kB)
+Downloading pytest_cov-6.0.0-py3-none-any.whl (22 kB)
+Downloading pytest_mock-3.14.0-py3-none-any.whl (9.9 kB)
+Downloading twine-5.1.1-py3-none-any.whl (38 kB)
+Downloading coverage-7.6.4-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (239 kB)
+Downloading cryptography-43.0.3-cp39-abi3-manylinux_2_28_x86_64.whl (4.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.0/4.0 MB 18.7 MB/s eta 0:00:00
+Downloading importlib_metadata-8.5.0-py3-none-any.whl (26 kB)
+Downloading keyring-25.5.0-py3-none-any.whl (39 kB)
+Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+Downloading pkginfo-1.10.0-py3-none-any.whl (30 kB)
+Downloading pycodestyle-2.12.1-py2.py3-none-any.whl (31 kB)
+Downloading pyflakes-3.2.0-py2.py3-none-any.whl (62 kB)
+Downloading readme_renderer-44.0-py3-none-any.whl (13 kB)
+Downloading rfc3986-2.0.0-py2.py3-none-any.whl (31 kB)
+Downloading httpbin-0.10.1-py2.py3-none-any.whl (100 kB)
+Downloading docutils-0.21.2-py3-none-any.whl (587 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 587.4/587.4 kB 3.2 MB/s eta 0:00:00
+Downloading jeepney-0.8.0-py3-none-any.whl (48 kB)
+Downloading nh3-0.2.18-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (769 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 769.2/769.2 kB 5.5 MB/s eta 0:00:00
+Downloading SecretStorage-3.3.3-py3-none-any.whl (15 kB)
+Downloading zipp-3.21.0-py3-none-any.whl (9.6 kB)
+Downloading Flask-2.1.3-py3-none-any.whl (95 kB)
+Downloading jaraco.classes-3.4.0-py3-none-any.whl (6.8 kB)
+Downloading jaraco.context-6.0.1-py3-none-any.whl (6.8 kB)
+Downloading jaraco.functools-4.1.0-py3-none-any.whl (10 kB)
+Downloading more_itertools-10.5.0-py3-none-any.whl (60 kB)
+Building wheels for collected packages: httpie, flake8-mutable
+  Building wheel for httpie (setup.py): started
+  Building wheel for httpie (setup.py): finished with status 'done'
+  Created wheel for httpie: filename=httpie-3.2.4-py3-none-any.whl size=127960 sha256=f71c57091d5397a19f0903f3fbda478e4e23cee17e48d6a9afbb4abe4012db75
+  Stored in directory: /tmp/pip-ephem-wheel-cache-39j7eyk_/wheels/ab/61/53/5745b25e2b8bbaa14fbfbd9653380fc1488b6ca0d288808571
+  Building wheel for flake8-mutable (setup.py): started
+  Building wheel for flake8-mutable (setup.py): finished with status 'done'
+  Created wheel for flake8-mutable: filename=flake8_mutable-1.2.0-py3-none-any.whl size=3305 sha256=937facfcff50d6e3502199d958e992bbebd8952a4986c35af844442e38f38a6a
+  Stored in directory: /home/sophia/Desktop/midterm/httpie/debian/.debhelper/generated/_source/home/.cache/pip/wheels/21/1e/60/0c66e489269c656fbedc543562c906df4113876cda4d592ef7
+Successfully built httpie flake8-mutable
+Installing collected packages: nh3, zipp, werkzeug, rfc3986, pyflakes, pycodestyle, pkginfo, more-itertools, mccabe, jeepney, jaraco.context, docutils, coverage, readme-renderer, pytest-mock, jaraco.functools, jaraco.classes, importlib-metadata, Flask, flake8, cryptography, SecretStorage, pytest-cov, pyopenssl, httpie, flake8-tuple, flake8-mutable, flake8-deprecated, flake8-comprehensions, keyring, twine, httpbin
+  Attempting uninstall: werkzeug
+    Found existing installation: Werkzeug 3.1.3
+    Uninstalling Werkzeug-3.1.3:
+      Successfully uninstalled Werkzeug-3.1.3
+  Attempting uninstall: Flask
+    Found existing installation: Flask 3.0.3
+    Uninstalling Flask-3.0.3:
+      Successfully uninstalled Flask-3.0.3
+  Attempting uninstall: httpie
+    Found existing installation: httpie 3.2.4
+    Uninstalling httpie-3.2.4:
+      Successfully uninstalled httpie-3.2.4
+  Attempting uninstall: httpbin
+    Found existing installation: httpbin 0.10.2
+    Uninstalling httpbin-0.10.2:
+      Successfully uninstalled httpbin-0.10.2
+Successfully installed Flask-2.1.3 SecretStorage-3.3.3 coverage-7.6.4 cryptography-43.0.3 docutils-0.21.2 flake8-7.1.1 flake8-comprehensions-3.16.0 flake8-deprecated-2.2.1 flake8-mutable-1.2.0 flake8-tuple-0.4.1 httpbin-0.10.1 httpie-3.2.4 importlib-metadata-8.5.0 jaraco.classes-3.4.0 jaraco.context-6.0.1 jaraco.functools-4.1.0 jeepney-0.8.0 keyring-25.5.0 mccabe-0.7.0 more-itertools-10.5.0 nh3-0.2.18 pkginfo-1.10.0 pycodestyle-2.12.1 pyflakes-3.2.0 pyopenssl-24.2.1 pytest-cov-6.0.0 pytest-mock-3.14.0 readme-renderer-44.0 rfc3986-2.0.0 twine-5.1.1 werkzeug-2.0.3 zipp-3.21.0
+
+
+[0;32m### Installing HTTPie ### [0m
+
+venv/bin/pip3 install --upgrade --editable .
+Obtaining file:///home/sophia/Desktop/midterm/httpie
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: pip in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (24.3.1)
+Requirement already satisfied: charset_normalizer>=2.0.0 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (3.4.0)
+Requirement already satisfied: defusedxml>=0.6.0 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (0.7.1)
+Requirement already satisfied: requests>=2.22.0 in ./venv/lib/python3.12/site-packages (from requests[socks]>=2.22.0->httpie==3.2.4) (2.32.3)
+Requirement already satisfied: Pygments>=2.5.2 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (2.18.0)
+Requirement already satisfied: requests-toolbelt>=0.9.1 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (1.0.0)
+Requirement already satisfied: multidict>=4.7.0 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (6.1.0)
+Requirement already satisfied: setuptools in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (75.4.0)
+Requirement already satisfied: rich>=9.10.0 in ./venv/lib/python3.12/site-packages (from httpie==3.2.4) (13.9.4)
+Requirement already satisfied: idna<4,>=2.5 in ./venv/lib/python3.12/site-packages (from requests>=2.22.0->requests[socks]>=2.22.0->httpie==3.2.4) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./venv/lib/python3.12/site-packages (from requests>=2.22.0->requests[socks]>=2.22.0->httpie==3.2.4) (2.2.3)
+Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.12/site-packages (from requests>=2.22.0->requests[socks]>=2.22.0->httpie==3.2.4) (2024.8.30)
+Requirement already satisfied: PySocks!=1.5.7,>=1.5.6 in ./venv/lib/python3.12/site-packages (from requests[socks]>=2.22.0->httpie==3.2.4) (1.7.1)
+Requirement already satisfied: markdown-it-py>=2.2.0 in ./venv/lib/python3.12/site-packages (from rich>=9.10.0->httpie==3.2.4) (3.0.0)
+Requirement already satisfied: mdurl~=0.1 in ./venv/lib/python3.12/site-packages (from markdown-it-py>=2.2.0->rich>=9.10.0->httpie==3.2.4) (0.1.2)
+Installing collected packages: httpie
+  Attempting uninstall: httpie
+    Found existing installation: httpie 3.2.4
+    Uninstalling httpie-3.2.4:
+      Successfully uninstalled httpie-3.2.4
+  DEPRECATION: Legacy editable install of httpie==3.2.4 from file:///home/sophia/Desktop/midterm/httpie (setup.py develop) is deprecated. pip 25.0 will enforce this behaviour change. A possible replacement is to add a pyproject.toml or enable --use-pep517, and use setuptools >= 64. If the resulting installation is not behaving as expected, try using --config-settings editable_mode=compat. Please consult the setuptools documentation for more information. Discussion can be found at https://github.com/pypa/pip/issues/11457
+  Running setup.py develop for httpie
+Successfully installed httpie-3.2.4
+
+make[2]: Leaving directory '/home/sophia/Desktop/midterm/httpie'
+make[1]: Leaving directory '/home/sophia/Desktop/midterm/httpie'
+   dh_installdocs
+   dh_installchangelogs
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+   dh_fixperms
+   dh_missing
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: warning: Depends field of package httpie: substitution variable ${python3:Depends} used, but is not defined
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package 'httpie' in '../httpie_3.0.0-1ubuntu1_all.deb'.
+ dpkg-genbuildinfo -O../httpie_3.0.0-1ubuntu1_amd64.buildinfo
+ dpkg-genchanges -O../httpie_3.0.0-1ubuntu1_amd64.changes
+dpkg-genchanges: info: not including original source code in upload
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary and diff upload (original source NOT included)
+Now running lintian httpie_3.0.0-1ubuntu1_amd64.changes ...
+E: httpie changes: bogus-mail-host Changed-By sophia@sophia-VirtualBox
+E: httpie: bogus-mail-host-in-debian-changelog sophia@sophia-VirtualBox (for version 3.0.0-1ubuntu1) [usr/share/doc/httpie/changelog.Debian.gz:1]
+E: httpie source: missing-build-dependency-for-dh_-command dh_python3 (does not satisfy dh-python:any | dh-sequence-python3:any | pybuild-plugin-pyproject:any) [debian/rules]
+W: httpie: description-synopsis-starts-with-article
+W: httpie: empty-binary-package
+W: httpie: extended-description-line-too-long line 2
+W: httpie source: syntax-error-in-dep5-copyright Continuation line not in paragraph (line 13). Missing a dot on the previous line? [debian/copyright]
+Finished running lintian.
